@@ -44,32 +44,34 @@ const StudentQuestions = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 p-8">
-      <header className="bg-blue-600 text-white p-6 shadow-md rounded-lg mb-8">
+    <div className=" bg-gradient-to-br from-white to-blue-50 sm:w-auto p-2 w-screen overflow-hidden">
+      <header className="bg-blue-600 text-white p-4 sm:p-6 shadow-md rounded-lg mb-4 sm:mb-8">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-          <h1 className="text-4xl font-semibold">Student Questions</h1>
+          <h1 className="text-2xl sm:text-4xl font-semibold">
+            Student Questions
+          </h1>
         </div>
       </header>
 
-      <div className="max-w-screen-xl mx-auto mb-6 flex gap-4">
-        <div className="flex items-center space-x-2">
+      <div className="max-w-screen-xl mx-auto mb-4 sm:mb-6 flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-grow items-center space-x-2">
           <input
             type="text"
-            className="p-2 rounded-lg border border-gray-300"
+            className="w-full p-2 rounded-lg border border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             placeholder="Search by Question or Student ID"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           <button
             onClick={() => setSearchQuery("")}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg transition-all duration-200 hover:bg-blue-500 focus:outline-none"
           >
             Reset Search
           </button>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-grow items-center space-x-2">
           <select
-            className="p-2 rounded-lg border border-gray-300"
+            className="w-full p-2 rounded-lg border border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             value={selectedGrade}
             onChange={(e) => setSelectedGrade(e.target.value)}
           >
@@ -80,17 +82,17 @@ const StudentQuestions = () => {
           </select>
           <button
             onClick={() => setSelectedGrade("")}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg transition-all duration-200 hover:bg-blue-500 focus:outline-none"
           >
             Reset Filter
           </button>
         </div>
       </div>
 
-      <div className="max-w-screen-xl mx-auto overflow-x-auto">
+      <div className="max-w-screen-xl mx-auto overflow-x-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-blue-400">
         <table className="min-w-full bg-white border border-gray-200 rounded-xl shadow-xl">
           <thead>
-            <tr className="bg-red-600 text-white">
+            <tr className="bg-red-600 text-white text-sm sm:text-base">
               <th className="py-3 px-5 text-left">Student ID</th>
               <th className="py-3 px-5 text-left">Join Date</th>
               <th className="py-3 px-5 text-left">Question</th>
@@ -101,7 +103,7 @@ const StudentQuestions = () => {
             {filteredQuestions.map((student) => (
               <tr
                 key={student.id}
-                className="border-b border-gray-200 hover:bg-blue-50 transition duration-300"
+                className="border-b border-gray-200 hover:bg-blue-50 transition duration-300 text-sm sm:text-base"
               >
                 <td className="py-4 px-5 text-gray-700">{student.studentId}</td>
                 <td className="py-4 px-5 text-gray-700">{student.joinDate}</td>

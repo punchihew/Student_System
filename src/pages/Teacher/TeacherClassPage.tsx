@@ -21,18 +21,21 @@ const liveLectures = [
 
 const LiveLecture = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-400 p-8">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-400 p-4 sm:p-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
         {liveLectures.map((lecture, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="group relative overflow-hidden rounded-[2.5rem] border border-blue-400/10 bg-white shadow-lg transition-all hover:bg-white/20"
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            className="group relative overflow-hidden rounded-3xl border border-blue-400/10 bg-white shadow-lg transition-all hover:bg-white/20 hover:shadow-xl"
           >
+            {/* Background Gradients */}
             <div className="absolute inset-0 -z-1 bg-[radial-gradient(circle_at_center,#60a5fa50_0%,transparent_70%)] opacity-0 transition-opacity group-hover:opacity-100" />
-            <div className="absolute inset-0 -z-1 rounded-[2.5rem] bg-gradient-to-r from-blue-300/50 to-blue-400/50 opacity-0 transition-opacity group-hover:opacity-100" />
+            <div className="absolute inset-0 -z-1 rounded-3xl bg-gradient-to-r from-blue-300/50 to-blue-400/50 opacity-0 transition-opacity group-hover:opacity-100" />
+
+            {/* LIVE Badge */}
             {lecture.isLive && (
               <motion.div
                 animate={{ y: [-5, 5, -5] }}
@@ -43,12 +46,15 @@ const LiveLecture = () => {
               </motion.div>
             )}
 
-            <div className="p-8">
-              <h2 className="mb-6 text-3xl font-bold text-blue-700">
+            {/* Card Content */}
+            <div className="p-6 sm:p-8">
+              <h2 className="mb-4 text-2xl font-bold text-blue-700 sm:text-3xl">
                 {lecture.title}
                 <div className="mt-2 h-1 w-12 bg-gradient-to-r from-blue-400 to-blue-500" />
               </h2>
-              <div className="mb-8 flex flex-wrap gap-6">
+
+              {/* Date and Time */}
+              <div className="mb-6 flex flex-wrap gap-4 sm:gap-6">
                 <div className="flex items-center space-x-3">
                   <div className="rounded-lg bg-blue-100 p-2">
                     <svg
@@ -68,7 +74,7 @@ const LiveLecture = () => {
                   </div>
                   <div>
                     <p className="text-sm text-blue-600">Date</p>
-                    <p className="font-mono text-lg text-blue-900">
+                    <p className="font-mono text-base sm:text-lg text-blue-900">
                       {lecture.date}
                     </p>
                   </div>
@@ -93,19 +99,20 @@ const LiveLecture = () => {
                   </div>
                   <div>
                     <p className="text-sm text-blue-600">Time</p>
-                    <p className="font-mono text-lg text-blue-900">
+                    <p className="font-mono text-base sm:text-lg text-blue-900">
                       {lecture.time}
                     </p>
                   </div>
                 </div>
               </div>
 
-              <motion.div className="flex space-x-4">
+              {/* Buttons */}
+              <motion.div className="flex flex-col gap-4 sm:flex-row sm:space-x-4">
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   href={lecture.link}
-                  className="block flex-grow overflow-hidden rounded-xl bg-gradient-to-r from-blue-400 to-blue-500 px-8 py-4 text-center font-bold text-white shadow-2xl transition-transform"
+                  className="flex-grow rounded-xl bg-gradient-to-r from-blue-400 to-blue-500 px-6 py-3 text-center font-bold text-white shadow-lg transition-transform sm:px-8 sm:py-4"
                 >
                   Start Lecture
                 </motion.a>
@@ -113,15 +120,17 @@ const LiveLecture = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="block flex-grow overflow-hidden rounded-xl bg-gradient-to-r from-white to-blue-400 px-8 py-4 text-center font-bold text-blue-700 shadow-2xl transition-transform"
+                  className="flex-grow rounded-xl bg-gradient-to-r from-white to-blue-400 px-6 py-3 text-center font-bold text-blue-700 shadow-lg transition-transform sm:px-8 sm:py-4"
                 >
                   Edit Lecture
                 </motion.button>
               </motion.div>
 
+              {/* Notification */}
               <motion.div
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
                 className="mt-6 flex items-center space-x-3 rounded-lg bg-white/30 p-4 backdrop-blur-lg"
               >
                 <div className="h-8 w-8 animate-pulse rounded-full bg-blue-400/20 p-1.5">

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -9,45 +9,45 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-500 via-yellow-600 to-yellow-700 flex items-center justify-center p-8">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-500 via-yellow-600 to-yellow-700 flex items-center justify-center p-6 sm:p-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col md:flex-row bg-white/10 backdrop-blur-lg rounded-3xl overflow-hidden shadow-2xl max-w-6xl w-full"
+        className="flex flex-col md:flex-row bg-white/10 backdrop-blur-lg rounded-3xl overflow-hidden shadow-2xl max-w-4xl sm:max-w-6xl w-full"
       >
-       
+        {/* Left Side Image */}
         <div className="w-full md:w-1/2 relative">
-          <div className="absolute inset-0 bg-black/50"></div>{" "}
-         
+          <div className="absolute inset-0 bg-black/50"></div>
           <img
             src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Modern Design"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20 flex items-end p-8">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20 flex items-end p-6 sm:p-8">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-4xl font-bold text-white tracking-tight"
+              className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
             >
               Welcome Back
             </motion.h2>
           </div>
         </div>
 
-        
-        <div className="w-full md:w-1/2 p-12 flex flex-col justify-center space-y-6">
+        {/* Right Side Form */}
+        <div className="w-full md:w-1/2 p-8 sm:p-12 flex flex-col justify-center space-y-6">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="text-4xl font-bold text-white mb-4 tracking-tight"
+            className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight"
           >
             Login
           </motion.h1>
 
+          {/* Username Input */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ const LoginPage = () => {
             />
           </motion.div>
 
-          
+          {/* Password Input */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,24 +89,25 @@ const LoginPage = () => {
             />
           </motion.div>
 
+          {/* Login Button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.5 }}
-            onClick={handleLogin} 
+            onClick={handleLogin}
             className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-3 rounded-lg hover:from-yellow-600 hover:to-yellow-700 transition-all shadow-lg"
           >
             Login
           </motion.button>
 
-        
+          {/* Forgot Password */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 0.5 }}
-            className="mt-6 text-center"
+            className="mt-4 text-center"
           >
             <a
               href="#"

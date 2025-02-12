@@ -66,29 +66,29 @@ const StudentAttendance = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50 p-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-semibold text-gray-800 mb-8 text-center">
+    <div className="bg-gradient-to-br from-blue-50 to-teal-50 sm:w-auto p-2 w-screen overflow-hidden">
+      <div className="max-w-4xl mx-auto w-full">
+        <h1 className="text-2xl sm:text-4xl font-semibold text-gray-800 mb-6 sm:mb-8 text-center">
           Student Attendance and Payment
         </h1>
 
-        <div className="flex items-center justify-between mb-6 gap-6">
-          <div className="relative flex-grow">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full sm:gap-6 mb-4 sm:mb-6">
+          <div className="relative w-full sm:flex-grow">
             <input
               type="text"
               placeholder="Search by name..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full p-4 pl-12 border border-blue-300 rounded-xl shadow-md focus:ring-4 focus:ring-blue-200 focus:border-blue-400 transition-all duration-300"
+              className="w-full p-3 sm:p-4 pl-12 border border-blue-300 rounded-lg sm:rounded-xl shadow-md focus:ring-4 focus:ring-blue-200 focus:border-blue-400 transition-all duration-300"
             />
             <Search className="absolute left-3 top-3.5 h-5 w-5 text-blue-500" />
           </div>
 
-          <div className="relative">
+          <div className="relative w-full sm:w-auto">
             <select
               value={selectedGrade}
               onChange={(e) => setSelectedGrade(e.target.value)}
-              className="p-4 pl-12 border border-blue-300 rounded-xl shadow-md focus:ring-4 focus:ring-blue-200 focus:border-blue-400 transition-all duration-300"
+              className="w-full sm:w-auto p-3 sm:p-4 pl-12 border border-blue-300 rounded-lg sm:rounded-xl shadow-md focus:ring-4 focus:ring-blue-200 focus:border-blue-400 transition-all duration-300"
             >
               <option value="">Filter by Grade</option>
               <option value="9th">9th</option>
@@ -99,15 +99,18 @@ const StudentAttendance = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-          <table className="w-full">
+    
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300 overflow-x-auto w-full">
+          <table className="w-full min-w-[640px]">
             <thead>
               <tr className="bg-blue-50">
-                <th className="p-4 text-left text-gray-700">ID</th>
-                <th className="p-4 text-left text-gray-700">Name</th>
-                <th className="p-4 text-left text-gray-700">Grade</th>
-                <th className="p-4 text-left text-gray-700">Attendance</th>
-                <th className="p-4 text-left text-gray-700">Payment</th>
+                <th className="p-3 sm:p-4 text-left text-gray-700">ID</th>
+                <th className="p-3 sm:p-4 text-left text-gray-700">Name</th>
+                <th className="p-3 sm:p-4 text-left text-gray-700">Grade</th>
+                <th className="p-3 sm:p-4 text-left text-gray-700">
+                  Attendance
+                </th>
+                <th className="p-3 sm:p-4 text-left text-gray-700">Payment</th>
               </tr>
             </thead>
             <tbody>
@@ -116,13 +119,13 @@ const StudentAttendance = () => {
                   key={student.id}
                   className="border-b hover:bg-blue-50 transition duration-200"
                 >
-                  <td className="p-4 text-gray-700">{student.id}</td>
-                  <td className="p-4 text-gray-700">{student.name}</td>
-                  <td className="p-4 text-gray-700">{student.grade}</td>
-                  <td className="p-4">
+                  <td className="p-3 sm:p-4 text-gray-700">{student.id}</td>
+                  <td className="p-3 sm:p-4 text-gray-700">{student.name}</td>
+                  <td className="p-3 sm:p-4 text-gray-700">{student.grade}</td>
+                  <td className="p-3 sm:p-4">
                     <button
                       onClick={() => handleAttendanceToggle(student.id)}
-                      className={`p-3 rounded-lg transition-all duration-300 ${
+                      className={`p-2 sm:p-3 rounded-lg transition-all duration-300 ${
                         student.isPresent
                           ? "bg-blue-500 hover:bg-blue-600"
                           : "bg-red-500 hover:bg-red-600"
@@ -131,10 +134,10 @@ const StudentAttendance = () => {
                       {student.isPresent ? "Present" : "Absent"}
                     </button>
                   </td>
-                  <td className="p-4">
+                  <td className="p-3 sm:p-4">
                     <button
                       onClick={() => handlePaymentToggle(student.id)}
-                      className={`p-3 rounded-lg transition-all duration-300 ${
+                      className={`p-2 sm:p-3 rounded-lg transition-all duration-300 ${
                         student.isPaymentDone
                           ? "bg-teal-500 hover:bg-teal-600"
                           : "bg-green-500 hover:bg-green-600"

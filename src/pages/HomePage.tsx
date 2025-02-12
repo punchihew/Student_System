@@ -19,18 +19,21 @@ const HomePage = () => {
         Your browser does not support the video tag.
       </video>
 
-      <div className="relative z-20 text-center text-white">
-        <h1 className="text-4xl font-bold mb-8">Welcome to Our Platform</h1>
-        <div className="space-x-4">
+      {/* Overlay Content */}
+      <div className="relative z-20 text-center text-white p-4">
+        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8">
+          Welcome to Our Platform
+        </h1>
+        <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center">
           <Link
             to="/login"
-            className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-300"
+            className="bg-blue-500 text-white text-lg px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-300"
           >
             Student LMS
           </Link>
           <Link
             to="/adminlogin"
-            className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300"
+            className="bg-green-500 text-white text-lg px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300"
           >
             Admin Login
           </Link>

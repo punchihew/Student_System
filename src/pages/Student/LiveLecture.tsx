@@ -22,7 +22,7 @@ const liveLectures = [
 const LiveLecture = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {liveLectures.map((lecture, index) => (
           <motion.div
             key={index}
@@ -31,11 +31,9 @@ const LiveLecture = () => {
             transition={{ delay: index * 0.1 }}
             className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 backdrop-blur-xl transition-all hover:bg-white/10"
           >
-          
             <div className="absolute inset-0 -z-1 bg-[radial-gradient(circle_at_center,#4f46e550_0%,transparent_70%)] opacity-0 transition-opacity group-hover:opacity-100" />
             <div className="absolute inset-0 -z-1 rounded-[2.5rem] bg-gradient-to-r from-yellow-400/30 to-yellow-500/30 opacity-0 transition-opacity group-hover:opacity-100" />
 
-           
             {lecture.isLive && (
               <motion.div
                 animate={{ y: [-5, 5, -5] }}
@@ -47,12 +45,11 @@ const LiveLecture = () => {
             )}
 
             <div className="p-8">
-              <h2 className="mb-6 text-3xl font-bold text-white/90">
+              <h2 className="mb-6 text-2xl sm:text-3xl font-bold text-white/90">
                 {lecture.title}
                 <div className="mt-2 h-1 w-12 bg-gradient-to-r from-yellow-400 to-yellow-500" />
               </h2>
 
-         
               <div className="mb-8 flex flex-wrap gap-6">
                 <div className="flex items-center space-x-3">
                   <div className="rounded-lg bg-white/5 p-2">
@@ -105,7 +102,6 @@ const LiveLecture = () => {
                 </div>
               </div>
 
-          
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -116,7 +112,6 @@ const LiveLecture = () => {
                 <div className="absolute inset-0 animate-hologram bg-[length:200%_200%] bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-30 mix-blend-screen" />
               </motion.a>
 
-           
               <motion.div
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}

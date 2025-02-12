@@ -79,7 +79,7 @@ const StudentLayout = () => {
             <aside className="self-start sticky top-[64px] w-fit bg-white z-[4000] hidden sm:flex">
               <Sidebar items={navList} onSignOutClick={() => {}} />
             </aside>
-            <div className="w-full h-full px-3 ">
+            <div className="w-full h-full">
               <Outlet />
             </div>
           </div>

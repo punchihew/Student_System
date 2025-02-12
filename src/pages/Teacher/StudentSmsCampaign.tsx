@@ -13,7 +13,7 @@ const StudentSmsCampaign = () => {
   const [smsContent, setSmsContent] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isConfirmationShown, setIsConfirmationShown] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(""); 
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Toggle student selection
   const toggleStudentSelection = (id: string) => {
@@ -53,14 +53,14 @@ const StudentSmsCampaign = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-white to-blue-100 p-2">
+    <div className="bg-gradient-to-br from-white to-blue-100 p-4 sm:p-6">
       <div className="max-w-7xl mx-auto ">
-        <h1 className="text-4xl font-bold text-blue-900 mb-8 text-center tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-8 text-center tracking-tight">
           Student SMS Campaign
         </h1>
 
         {/* Search Bar */}
-        <div className="mb-8 flex items-center gap-4">
+        <div className="mb-8 flex flex-col sm:flex-row items-center gap-4">
           <div className="relative flex-grow">
             <input
               type="text"
@@ -114,7 +114,7 @@ const StudentSmsCampaign = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 ">
+          <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-8">
             <h2 className="text-2xl font-semibold text-blue-700 mb-6">
               Selected Student Numbers
             </h2>
@@ -147,7 +147,7 @@ const StudentSmsCampaign = () => {
             />
             <button
               onClick={handleSendSms}
-              className="bg-blue-600 text-white p-2 rounded-xl hover:bg-blue-700 transition-all duration-300 ease-in-out shadow-lg"
+              className="mt-4 bg-blue-600 text-white p-2 rounded-xl hover:bg-blue-700 transition-all duration-300 ease-in-out shadow-lg"
             >
               Send SMS
             </button>
@@ -157,11 +157,11 @@ const StudentSmsCampaign = () => {
         {/* Confirmation Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full transition-all transform duration-300">
-              <h2 className="text-xl font-bold text-blue-800 mb-6">
+            <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-lg w-full transition-all transform duration-300">
+              <h2 className="text-lg sm:text-xl font-bold text-blue-800 mb-6">
                 Confirm SMS Send
               </h2>
-              <p className="text-gray-700 text-lg mb-6">
+              <p className="text-gray-700 text-base sm:text-lg mb-6">
                 You are about to send SMS to{" "}
                 <span className="font-semibold">{selectedStudents.length}</span>{" "}
                 students.
@@ -179,13 +179,13 @@ const StudentSmsCampaign = () => {
               <div className="flex space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-grow bg-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-400 transition"
+                  className="flex-grow bg-gray-300 text-gray-700 py-2 sm:py-3 rounded-lg hover:bg-gray-400 transition"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={confirmSendSms}
-                  className="flex-grow bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+                  className="flex-grow bg-blue-600 text-white py-2 sm:py-3 rounded-lg hover:bg-blue-700 transition"
                 >
                   Confirm
                 </button>
@@ -197,19 +197,21 @@ const StudentSmsCampaign = () => {
         {/* Success Confirmation Modal */}
         {isConfirmationShown && (
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full transition-all transform duration-300 scale-100 hover:scale-[1.02]">
+            <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-lg w-full transition-all transform duration-300 scale-100 hover:scale-[1.02]">
               <div className="flex items-center space-x-4 mb-6">
-                <CheckCircle className="h-8 w-8 text-green-500" />
-                <h2 className="text-xl font-bold text-blue-800">SMS Sent!</h2>
+                <CheckCircle className="h-6 sm:h-8 w-6 sm:w-8 text-green-500" />
+                <h2 className="text-lg sm:text-xl font-bold text-blue-800">
+                  SMS Sent!
+                </h2>
               </div>
-              <p className="text-gray-700 text-lg mb-6">
+              <p className="text-gray-700 text-base sm:text-lg mb-6">
                 The SMS has been successfully sent to{" "}
                 <span className="font-semibold">{selectedStudents.length}</span>{" "}
                 students.
               </p>
               <button
                 onClick={() => setIsConfirmationShown(false)}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+                className="bg-blue-600 text-white w-full py-2 sm:py-3 rounded-lg hover:bg-blue-700 transition"
               >
                 Close
               </button>

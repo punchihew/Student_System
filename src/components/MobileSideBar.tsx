@@ -35,7 +35,7 @@ const MobileSideBar = ({ sidebarButtons, navList, title, date, time, open }: Mob
                     navList.map((nav, index) => {
                         let isActive = path === nav.link
                         return (
-                            <a href={nav.link} key={index} className={`w-full flex flex-row justify-start items-center gap-4 h-[50px] ${isActive ? "bg-yellow-400 text-white shadow-md" : "text-gray-700"} rounded-md p-4`}>
+                            <a href={nav.link} key={index} className={`w-full flex flex-row justify-start items-center gap-4 h-[50px] ${isActive ? "bg-blue-500 text-white shadow-md" : "text-gray-700"} rounded-md p-4`}>
                                 <div className='flex items-center justify-center size-[24px]'>
                                     <img src={nav.icon} alt={nav.name} className={`w-6 h-6 ${isActive ? 'invert' : ''}`} />
                                 </div>
