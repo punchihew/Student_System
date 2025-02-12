@@ -4,7 +4,7 @@ import NotificationBar from '../components/NotificationBar'
 import MobileSideBar from '../components/MobileSideBar'
 import CurrentDate from '../components/CurrentDate'
 import CurrentTime from '../components/CurrentTime'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import Header from '../components/Header'
 import { bellIcon } from '../assets/icons'
@@ -50,6 +50,8 @@ const AdminDashboardLayout = () => {
       },
     ];
     const [openSideBar, setOpenSideBar] = useState(false)
+
+    const navigate = useNavigate();
     return (
         <>
             <div className="w-full flex items-center justify-center h-full bg-white">
@@ -102,17 +104,9 @@ const AdminDashboardLayout = () => {
                 open={openSideBar}
                 sidebarButtons={
                     <>
-                        <a
-                            className="w-full flex flex-row justify-start items-center gap-4 h-[50px] text-gray-700 rounded-md p-4">
-                            <div className='flex items-center justify-center size-[24px]'>
-                                <img src={userIcon} alt="switch" className="w-4 h-4" />
-                            </div>
-                            <p className='text-[14px] font-medium'>
-                                Switch Employee Account
-                            </p>
-                        </a>
+                       
                         <div
-                            onClick={() => { }}
+                            onClick={() => { navigate('/') }}
                             className="w-full flex flex-row justify-start items-center gap-4 h-[50px] text-gray-700 rounded-md p-4">
                             <div className='flex items-center justify-center size-[24px]'>
                                 <img src={signOutIcon} alt="signout" className="w-4 h-4" />

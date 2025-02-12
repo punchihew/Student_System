@@ -44,79 +44,86 @@ const StudentQuestions = () => {
   });
 
   return (
-    <div className=" bg-gradient-to-br from-white to-blue-50 sm:w-auto p-2 w-screen overflow-hidden">
-      <header className="bg-blue-600 text-white p-4 sm:p-6 shadow-md rounded-lg mb-4 sm:mb-8">
-        <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl sm:text-4xl font-semibold">
-            Student Questions
-          </h1>
-        </div>
-      </header>
+    <>
+      <div className=" bg-gradient-to-br from-white to-blue-50 sm:w-auto p-2 sm:p-8 w-screen overflow-hidden">
+        <header className="bg-blue-600 text-white p-4 sm:p-6 shadow-md rounded-lg mb-4 sm:mb-8 sm:w-fit w-full ">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl sm:text-3xl font-semibold">
+              Student Questions
+            </h1>
+          </div>
+        </header>
 
-      <div className="max-w-screen-xl mx-auto mb-4 sm:mb-6 flex flex-col sm:flex-row gap-4">
-        <div className="flex flex-grow items-center space-x-2">
-          <input
-            type="text"
-            className="w-full p-2 rounded-lg border border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            placeholder="Search by Question or Student ID"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <button
-            onClick={() => setSearchQuery("")}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg transition-all duration-200 hover:bg-blue-500 focus:outline-none"
-          >
-            Reset Search
-          </button>
-        </div>
-        <div className="flex flex-grow items-center space-x-2">
-          <select
-            className="w-full p-2 rounded-lg border border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            value={selectedGrade}
-            onChange={(e) => setSelectedGrade(e.target.value)}
-          >
-            <option value="">All Grades</option>
-            <option value="10">Grade 10</option>
-            <option value="11">Grade 11</option>
-            <option value="12">Grade 12</option>
-          </select>
-          <button
-            onClick={() => setSelectedGrade("")}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg transition-all duration-200 hover:bg-blue-500 focus:outline-none"
-          >
-            Reset Filter
-          </button>
-        </div>
-      </div>
+        <div className="max-w-screen-xl mx-auto mb-4 sm:mb-6 flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-grow items-center space-x-2">
+            <input
+              type="text"
+              className="w-full p-2 rounded-lg border border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="Search by Question or Student ID"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button
+              onClick={() => setSearchQuery("")}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg transition-all duration-200 hover:bg-blue-500 focus:outline-none"
+            >
+              Reset Search
+            </button>
+          </div>
 
-      <div className="max-w-screen-xl mx-auto overflow-x-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-blue-400">
-        <table className="min-w-full bg-white border border-gray-200 rounded-xl shadow-xl">
-          <thead>
-            <tr className="bg-red-600 text-white text-sm sm:text-base">
-              <th className="py-3 px-5 text-left">Student ID</th>
-              <th className="py-3 px-5 text-left">Join Date</th>
-              <th className="py-3 px-5 text-left">Question</th>
-              <th className="py-3 px-5 text-left">Grade</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredQuestions.map((student) => (
-              <tr
-                key={student.id}
-                className="border-b border-gray-200 hover:bg-blue-50 transition duration-300 text-sm sm:text-base"
-              >
-                <td className="py-4 px-5 text-gray-700">{student.studentId}</td>
-                <td className="py-4 px-5 text-gray-700">{student.joinDate}</td>
-                <td className="py-4 px-5 text-gray-700 italic">
-                  {student.question}
-                </td>
-                <td className="py-4 px-5 text-gray-700">{student.grade}</td>
+          <div className="flex flex-grow items-center space-x-2">
+            <select
+              className="w-full p-2 rounded-lg border border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              value={selectedGrade}
+              onChange={(e) => setSelectedGrade(e.target.value)}
+            >
+              <option value="">All Grades</option>
+              <option value="10">Grade 10</option>
+              <option value="11">Grade 11</option>
+              <option value="12">Grade 12</option>
+            </select>
+            <button
+              onClick={() => setSelectedGrade("")}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg transition-all duration-200 hover:bg-blue-500 focus:outline-none"
+            >
+              Reset Filter
+            </button>
+          </div>
+        </div>
+
+        <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-blue-400 bg-red-600 ">
+          <table className="w-full bg-white border border-gray-200 rounded-xl shadow-xl">
+            <thead>
+              <tr className="bg-red-600 text-white text-sm sm:text-base">
+                <th className="py-3 px-5 text-left">Student ID</th>
+                <th className="py-3 px-5 text-left">Join Date</th>
+                <th className="py-3 px-5 text-left">Question</th>
+                <th className="py-3 px-5 text-left">Grade</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredQuestions.map((student) => (
+                <tr
+                  key={student.id}
+                  className="border-b border-gray-200 hover:bg-blue-50 transition duration-300 text-sm sm:text-base"
+                >
+                  <td className="py-4 px-5 text-gray-700">
+                    {student.studentId}
+                  </td>
+                  <td className="py-4 px-5 text-gray-700">
+                    {student.joinDate}
+                  </td>
+                  <td className="py-4 px-5 text-gray-700 italic">
+                    {student.question}
+                  </td>
+                  <td className="py-4 px-5 text-gray-700">{student.grade}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
